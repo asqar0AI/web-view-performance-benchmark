@@ -1,0 +1,109 @@
+/* Overall Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* Start Screen */
+  #startScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+  }
+  
+  #startScreen h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #startScreen p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  #startScreen button {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #startScreen button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Stats Panel (placed at the top center) */
+  #stats {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 1);
+    width: 300px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 0.8em;
+    user-select: none;
+  }
+  
+  /* Game Canvas */
+  #gameCanvas {
+    display: block;
+    margin: 80px auto 20px; /* Top margin accommodates the stats panel */
+    border: 2px solid #fff;
+    background-color: #000;
+  }
+  
+  /* Game Over Screen */
+  #gameOverScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  #gameOverScreen h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #gameOverScreen p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  #gameOverScreen button {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #gameOverScreen button:hover {
+    background-color: #c0392b;
+  }
+  
