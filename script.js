@@ -33,6 +33,10 @@ const bounceMargin = 10;  // Clear margin inside canvas for ball bouncing
 
 // Critical load: game stops if FPS drops below this value.
 const CRITICAL_FPS = 4;
+// Delay (in ms) before starting FPS critical check after game start.
+const CRITICAL_FPS_DELAY = 2000;
+let gameStartTime = 0; // Will be set when game starts
+
 let isGameOver = false;
 
 // Variables for FPS display update timing (update twice a second)
@@ -154,8 +158,8 @@ function gameLoop(time) {
   update(delta);
   draw();
   
-  // Check critical load: if FPS drops below threshold, end the game
-  if (fps < CRITICAL_FPS) {
+  // Only check for critical FPS after the delay has passed
+  if (time - gameStartTime > CRITICAL_FPS_DELAY && fps < CRITICAL_FPS) {
     gameOver();
     return;
   }
@@ -177,9 +181,9 @@ canvas.addEventListener('mousedown', function(event) {
   holdTimeout = setTimeout(() => {
     if (isHolding) {
       holdingActivated = true;
-      spawnInterval = setInterval(spawnRandomBallsAtHold, 5); // spawn more frequently
+      spawnInterval = setInterval(spawnRandomBallsAtHold, 50); // spawn more frequently
     }
-  }, 0);
+  }, 200);
 });
 canvas.addEventListener('mousemove', function(event) {
   if (isHolding && !isGameOver) {
@@ -216,9 +220,9 @@ canvas.addEventListener('touchstart', function(event) {
   holdTimeout = setTimeout(() => {
     if (isHolding) {
       holdingActivated = true;
-      spawnInterval = setInterval(spawnRandomBallsAtHold, 5);
+      spawnInterval = setInterval(spawnRandomBallsAtHold, 50);
     }
-  }, 0);
+  }, 200);
 });
 canvas.addEventListener('touchmove', function(event) {
   if (isHolding && !isGameOver) {
@@ -246,6 +250,7 @@ startButton.addEventListener('click', () => {
   document.getElementById('gameCanvas').style.display = 'block';
   
   resizeCanvas(); // Set initial canvas size
+  gameStartTime = performance.now(); // Record game start time for critical FPS delay
   requestAnimationFrame(gameLoop);
 });
 
