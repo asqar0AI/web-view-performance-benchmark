@@ -181,9 +181,9 @@ canvas.addEventListener('mousedown', function(event) {
   holdTimeout = setTimeout(() => {
     if (isHolding) {
       holdingActivated = true;
-      spawnInterval = setInterval(spawnRandomBallsAtHold, 50); // spawn more frequently
+      spawnInterval = setInterval(spawnRandomBallsAtHold, 5); // spawn more frequently
     }
-  }, 200);
+  }, 0);
 });
 canvas.addEventListener('mousemove', function(event) {
   if (isHolding && !isGameOver) {
@@ -220,9 +220,9 @@ canvas.addEventListener('touchstart', function(event) {
   holdTimeout = setTimeout(() => {
     if (isHolding) {
       holdingActivated = true;
-      spawnInterval = setInterval(spawnRandomBallsAtHold, 50);
+      spawnInterval = setInterval(spawnRandomBallsAtHold, 5);
     }
-  }, 200);
+  }, 0);
 });
 canvas.addEventListener('touchmove', function(event) {
   if (isHolding && !isGameOver) {
